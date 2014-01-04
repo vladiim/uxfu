@@ -1,0 +1,12 @@
+footer {
+  border-color: #e7e7e7;
+  background-color: #f8f8f8;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  padding: 10px;
+}
+
+#main {
+  margin: 60px 0 50px 0;
+}
