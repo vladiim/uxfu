@@ -11,5 +11,5 @@ get '/home' do
 end
 
 get '/user_journeys' do
-	erb :user_journeys
+	erb :index, locals: { content: 'user_journeys', logged: 'out' }
 end
