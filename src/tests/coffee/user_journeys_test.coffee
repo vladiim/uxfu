@@ -4,11 +4,9 @@ sinon = require('sinon')
 
 describe 'UserJourneys', ->
 
-  describe 'constructor()', ->
-	  it 'constructs itself with a charting tool', ->
-	  	chart = 'chart'
-	  	uj    = new UserJourneys(chart)
-	  	expect(uj.chart).to.eql(chart)
-
-	  it 'sets the default chart to flowchart', ->
-      sinon.stub('require')
+  describe 'parse()', ->
+  	it 'delegates to its chart', ->
+  		code = {}
+  		uj   = new UserJourneys
+  		sinon.stub(uj.chart, 'parse').withArgs(code).returns('DELEGATED TO CHART')
+  		expect(uj.parse(code)).to.eql('DELEGATED TO CHART')

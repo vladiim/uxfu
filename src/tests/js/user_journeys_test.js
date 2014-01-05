@@ -8,15 +8,13 @@
   sinon = require('sinon');
 
   describe('UserJourneys', function() {
-    return describe('constructor()', function() {
-      it('constructs itself with a charting tool', function() {
-        var chart, uj;
-        chart = 'chart';
-        uj = new UserJourneys(chart);
-        return expect(uj.chart).to.eql(chart);
-      });
-      return it('sets the default chart to flowchart', function() {
-        return sinon.stub('require');
+    return describe('parse()', function() {
+      return it('delegates to its chart', function() {
+        var code, uj;
+        code = {};
+        uj = new UserJourneys;
+        sinon.stub(uj.chart, 'parse').withArgs(code).returns('DELEGATED TO CHART');
+        return expect(uj.parse(code)).to.eql('DELEGATED TO CHART');
       });
     });
   });
