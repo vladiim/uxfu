@@ -8,13 +8,21 @@
   sinon = require('sinon');
 
   describe('UserJourneys', function() {
-    return describe('parse()', function() {
-      return it('delegates to its chart', function() {
-        var code, uj;
+    return describe('draw()', function() {
+      return it('delegates to chart, passing in its chart options', function() {
+        var code, mock, options, uj;
+        options = {};
         code = {};
         uj = new UserJourneys;
-        sinon.stub(uj.chart, 'parse').withArgs(code).returns('DELEGATED TO CHART');
-        return expect(uj.parse(code)).to.eql('DELEGATED TO CHART');
+        uj.options = options;
+        uj.chart = {
+          drawSVG: function() {},
+          parse: function() {}
+        };
+        sinon.stub(uj.chart, 'drawSVG').withArgs('canvas', options).returns('DELEGATED TO CHART');
+        mock = sinon.mock(uj.chart).expects('parse').withArgs(code);
+        expect(uj.draw(code)).to.eql('DELEGATED TO CHART');
+        return mock.verify();
       });
     });
   });
