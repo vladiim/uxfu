@@ -1,16 +1,12 @@
-root      = exports ? window
-flowchart = require('./flowchart')
+# root = exports ? window
 
-symbols = {
-    'end': {
-      'font-color': '#bd262c',
-      'element-color': '#bd262c'
-    },
-    'inputoutput': {
-      'font-color': 'green',
-      'element-color': 'green'
-    }
-}
+# Use node require in test env and 
+# client-side require in browser
+# if exports?
+#   flowchart = require('./flowchart')
+# else
+#   raphael   = require(['raphael'])
+#   flowchart = require(['flowchart'])
 
 chartOptions = {
     'line-width': 2,
@@ -24,19 +20,37 @@ chartOptions = {
     'yes-text': 'yes',
     'no-text': 'no',
     'arrow-end': 'block',
-    'symbols': symbols
-}
+    'symbols': {
+      'end': {
+        'font-color': '#bd262c',
+        'element-color': '#bd262c'
+      }, 'inputoutput': {
+        'font-color': 'green',
+        'element-color': 'green'
+      }
+    }
+  }
 
-class UserJourneys
-	constructor: ->
-    @chart   = flowchart
-    @options = chartOptions
+define ['raphael', 'flowchart'], ->
+  # require ['flowchart'], (flowchart) ->
+  code  = document.getElementById('code').textContent
+  chart = flowchart.parse(code)
+  chart.drawSVG('canvas', chartOptions)
 
-  parse: (code) ->
-    @chart.parse(code)
+# class UserJourneys
+# 	constructor: ->
+#     @chart   = flowchart
+#     @options = chartOptions
 
-  draw: (code) ->
-    @parse(code)
-    @chart.drawSVG('canvas', @options)
+#   parse: (code) ->
+#     @chart.parse(code)
 
-root.UserJourneys = UserJourneys
+#   draw: (code) ->
+#     parsedCode = @parse(code)
+#     parsedCode.drawSVG('canvas', @options)
+
+# code = document.getElementById('code').textContent
+# uj = new UserJourneys
+# uj.draw(code)
+
+# root.UserJourneys = UserJourneys
