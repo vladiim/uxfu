@@ -1,55 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>flowchart.js · Playground</title>
-        	<script src="js/raphael.js"></script>
-      	<script src="js/flowchart.js"></script>
-        <script>
+<script data-main="js/user_journeys.js" src="js/require.js"></script>
 
-            window.onload = function () {
-                var btn = document.getElementById("run"),
-                    cd = document.getElementById("code"),
-                    chart;
+<div id="canvas"></div>
 
-                (btn.onclick = function () {
-                    var code = cd.value;
-
-                    if (chart) {
-                      chart.clean();
-                    }
-
-                    chart = flowchart.parse(code);
-                    chart.drawSVG('canvas', {
-                      'line-width': 2,
-                      'line-length': 30,
-                      'text-margin': 10,
-                      'font-size': 12,
-                      'font-color': '#6c6c6c',
-                      'line-color': '#6c6c6c',
-                      'element-color': '#6c6c6c',
-                      'fill': 'white',
-                      'yes-text': 'yes',
-                      'no-text': 'no',
-                      'arrow-end': 'block',
-                      'symbols': {
-                        'end': {
-                          'font-color': '#bd262c',
-                          'element-color': '#bd262c'
-                        },
-                        'inputoutput': {
-                          'font-color': 'green',
-                          'element-color': 'green'
-                        }
-                      }
-                    });
-                })();
-
-            };
-        </script>
-    </head>
-    <body>
-        <div><textarea id="code" style="width: 100%;" rows="11">
+<div id="code" style="visibility: hidden" rows="11">
 st=>start: Legend form field visible:>http://www.google.com[blank]
 e=>end:>
 e2=>end:>
@@ -70,8 +23,4 @@ entersName(yes, right)->passesVal
 entersName(no)->e2
 passesVal(yes, up)->uj2
 passesVal(no)->e2
-        </textarea></div>
-        <div><button id="run" type="button">Run</button></div>
-        <div id="canvas"></div>
-    </body>
-</html>
+</div>
