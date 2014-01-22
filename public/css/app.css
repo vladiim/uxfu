@@ -10,3 +10,7 @@ footer {
 #main {
   margin: 60px 0 50px 0;
 }
+
+.user_journey_nav > ul > li {
+  border: 1px solid #ddd;
+}

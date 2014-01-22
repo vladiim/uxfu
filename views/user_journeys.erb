@@ -1,14 +1,20 @@
 <script data-main="js/user_journeys.js" src="js/require.js"></script>
 
-<div class="col-md-3">
+<div class="col-md-3 user_journey_nav">
+  <h3>
+    User journeys
+  </h3>
   <ul class="nav nav-pills nav-stacked">
-    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
-    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
-    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
+    <% user_journeys.each do |uj| %>
+      <li><a href="#"><%= uj.fetch(:title) %></a></li>
+    <% end %>
   </ul>
 </div>
 
 <div class="col-md-9">
+  <h3 class="user_journey_name">
+    Name of UJ!
+  </h3>
   <div id="canvas"></div>
 
   <div id="code" style="visibility: hidden">

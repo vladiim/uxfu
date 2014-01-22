@@ -24,10 +24,10 @@
           <section id='main' class='row'>
             <div class='col-xs-12'>
               <% if content == 'home' %>
-                <%= erb :home %>
+                <%= erb :home, locals: locals %>
 
               <% elsif content == 'user_journeys' %>
-                <%= erb :user_journeys %>
+                <%= erb :user_journeys, locals: locals %>
 
               <% end %>
             </div>

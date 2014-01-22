@@ -11,5 +11,9 @@ get '/home' do
 end
 
 get '/user_journeys' do
-	erb :index, locals: { content: 'user_journeys', logged: 'out' }
+  erb :index, locals: {
+    content: 'user_journeys',
+    logged: 'out',
+    user_journeys: [ { title: "First user journey" }, { title: "2nd UJ" } ]
+  }
 end
