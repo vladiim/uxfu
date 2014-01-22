@@ -1,5 +1,5 @@
 (function() {
-  var BOOTSTRAP, HELPERS, HOLDER, JQUERY, LIBRARIES;
+  var BOOTSTRAP, HELPERS, HOLDER, JQUERY, LIBRARIES, USER_JOURNEYS;
 
   HELPERS = "helpers";
 
@@ -9,7 +9,9 @@
 
   BOOTSTRAP = "bootstrap";
 
-  LIBRARIES = [JQUERY, BOOTSTRAP, "" + HELPERS + "/" + HOLDER];
+  USER_JOURNEYS = "user_journeys";
+
+  LIBRARIES = [JQUERY, BOOTSTRAP, "" + HELPERS + "/" + HOLDER, USER_JOURNEYS];
 
   require.config({
     paths: {

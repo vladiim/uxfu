@@ -7,6 +7,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 
+    <script data-main="js/app.js" src="js/require.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,27 +21,22 @@
       <div>
         <div>
 
-          <%= erb :nav, locals: locals %>
+          <% unless content == 'user_journeys' %>
+            <%= erb :nav, locals: locals %>
+          <% end %>
        
           <section id='main' class='row'>
             <div class='col-xs-12'>
-              <% if content == 'home' %>
-                <%= erb :home, locals: locals %>
-
-              <% elsif content == 'user_journeys' %>
-                <%= erb :user_journeys, locals: locals %>
-
-              <% end %>
+              <%= erb content.to_sym, locals: locals %>
             </div>
           </section>
 
-          <%= erb :footer %>
-
+          <% unless content == 'user_journeys' %>
+            <%= erb :footer %>
+          <% end %>
         </div>
       </div>
     </section>
-
-    <script data-main="js/app.js" src="js/require.js"></script>
   </body>
 
   <%= erb :modal %>

@@ -14,3 +14,14 @@ footer {
 .user_journey_nav > ul > li {
   border: 1px solid #ddd;
 }
+
+.user_journey_user_name {
+  background: #ddd;
+  border: none;
+}
+
+.user_journey_user_name > p {
+  font-weight: bold;
+  padding: 2px 15px;
+  margin-top: 5px;
+}

@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'json'
+require "#{Dir.pwd}/src/ruby/user_journeys"
 
 # use Rack::Auth::Basic, "Restricted Area" do |username, password|
 #   username == 'uname' and password == 'password'
@@ -11,9 +12,11 @@ get '/home' do
 end
 
 get '/user_journeys' do
-  erb :index, locals: {
+  length = USER_ONE_UJ.length
+	erb :index, locals: {
     content: 'user_journeys',
     logged: 'out',
-    user_journeys: [ { title: "First user journey" }, { title: "2nd UJ" } ]
+    user_journeys: USER_JOURNEYS,
+    uj_length: length
   }
 end
