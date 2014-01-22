@@ -25,3 +25,7 @@ footer {
   padding: 2px 15px;
   margin-top: 5px;
 }
+
+svg {
+  width: 100%;
+}
