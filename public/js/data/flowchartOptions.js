@@ -7,8 +7,8 @@ flowchartOptions = {
   'line-color': '#6c6c6c',
   'element-color': '#6c6c6c',
   'fill': 'white',
-  'yes-text': 'yes',
-  'no-text': 'no',
+  'yes-text': '[Y]',
+  'no-text': '[N]',
   'arrow-end': 'block',
   'symbols': {
     'end': {
