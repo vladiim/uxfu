@@ -1,8 +1,17 @@
 <script data-main="js/user_journeys.js" src="js/require.js"></script>
 
-<div id="canvas"></div>
+<div class="col-md-3">
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
+    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
+    <li><a href="#" style="border: 1px solid #ddd">Messages</a></li>
+  </ul>
+</div>
 
-<div id="code" style="visibility: hidden">
+<div class="col-md-9">
+  <div id="canvas"></div>
+
+  <div id="code" style="visibility: hidden">
 st=>start: Legend form field visible:>http://www.google.com[blank]
 e=>end:>
 e2=>end:>
@@ -23,4 +32,5 @@ entersName(yes, right)->passesVal
 entersName(no)->e2
 passesVal(yes, up)->uj2
 passesVal(no)->e2
+  </div>
 </div>
