@@ -26,6 +26,19 @@ footer {
   margin-top: 5px;
 }
 
+.current_user_journey {
+  background: #428bca;
+}
+
+.current_user_journey > a {
+  color: white;
+}
+
+.current_user_journey > a:hover {
+  background: #428bca;
+  color: white;
+}
+
 svg {
-  width: 1000px;
+  width: 1500px;
 }

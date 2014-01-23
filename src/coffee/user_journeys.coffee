@@ -10,18 +10,30 @@ require FILES, ->
     $(".user_journey_item").on("click", loadUserJourney)
 
   loadUserJourney = (event) ->
-    event.preventDefault()
     uj    = event.target
     title = $(uj).data('title')
     code  = $(uj).data('code')
-    updateUJPage(title, code)
+    updateUJPage(uj, title, code)
+    event.preventDefault()
 
-  updateUJPage = (title, code) ->
-    $("h3.user_journey_name").text(title)
+  updateUJPage = (uj, title, code) ->
+    removeOldUJ()
+    highlightCurrent(uj)
+    changeTitle(title)
+    drawFlowchart(code)
+
+  removeOldUJ = ->
+    current      = $(".current_user_journey")
     instructions = $("h4.user_journey_instructions")
+    if current then current.removeClass("current_user_journey")
     if instructions then instructions.remove()
     if $("svg") then $("svg").remove()
-    drawFlowchart(code)
+
+  highlightCurrent = (uj) ->
+    $(uj).parent().addClass('current_user_journey')
+
+  changeTitle = (title) ->
+    $("h3.user_journey_name").text(title)
 
   drawFlowchart = (code) ->
     chart = window.flowchart.parse(code)

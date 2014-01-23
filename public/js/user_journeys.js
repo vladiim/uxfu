@@ -12,29 +12,43 @@
   FILES = [APP, RAPHAEL, FLOWCHART, OPTIONS];
 
   require(FILES, function() {
-    var drawFlowchart, init, loadUserJourney, updateUJPage;
+    var changeTitle, drawFlowchart, highlightCurrent, init, loadUserJourney, removeOldUJ, updateUJPage;
     init = function() {
       return $(".user_journey_item").on("click", loadUserJourney);
     };
     loadUserJourney = function(event) {
       var code, title, uj;
-      event.preventDefault();
       uj = event.target;
       title = $(uj).data('title');
       code = $(uj).data('code');
-      return updateUJPage(title, code);
+      updateUJPage(uj, title, code);
+      return event.preventDefault();
     };
-    updateUJPage = function(title, code) {
-      var instructions;
-      $("h3.user_journey_name").text(title);
+    updateUJPage = function(uj, title, code) {
+      removeOldUJ();
+      highlightCurrent(uj);
+      changeTitle(title);
+      return drawFlowchart(code);
+    };
+    removeOldUJ = function() {
+      var current, instructions;
+      current = $(".current_user_journey");
       instructions = $("h4.user_journey_instructions");
+      if (current) {
+        current.removeClass("current_user_journey");
+      }
       if (instructions) {
         instructions.remove();
       }
       if ($("svg")) {
-        $("svg").remove();
+        return $("svg").remove();
       }
-      return drawFlowchart(code);
+    };
+    highlightCurrent = function(uj) {
+      return $(uj).parent().addClass('current_user_journey');
+    };
+    changeTitle = function(title) {
+      return $("h3.user_journey_name").text(title);
     };
     drawFlowchart = function(code) {
       var chart;
