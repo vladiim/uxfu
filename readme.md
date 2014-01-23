@@ -20,7 +20,7 @@ User experience framework for constructing interactive digital:
 
 # Start server
 
-* Run `$ puma config.ru`
+* Run `$ shotgun --server=puma config.ru`
 
 ***
 
