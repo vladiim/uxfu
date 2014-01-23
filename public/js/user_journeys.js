@@ -18,11 +18,11 @@
     };
     loadUserJourney = function(event) {
       var code, title, uj;
+      event.preventDefault();
       uj = event.target;
       title = $(uj).data('title');
       code = $(uj).data('code');
-      updateUJPage(uj, title, code);
-      return event.preventDefault();
+      return updateUJPage(uj, title, code);
     };
     updateUJPage = function(uj, title, code) {
       removeOldUJ();

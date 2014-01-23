@@ -2,17 +2,29 @@
   <h3 class="user_journey_title">
     User journeys (#<%= uj_length %>)
   </h3>
-  <ul class="nav nav-pills nav-stacked">
 
-    <% user_journeys.each do |user| %>
-      <li class="user_journey_user_name"><p><%= user.fetch(:name) %></p></li>
+  <div class="panel-group accordion">
 
-      <% user.fetch(:ujs).each do |uj| %>
-        <li><a class="user_journey_item" href="#" data-title="<%=uj.fetch(:title) %>" data-code="<%= uj.fetch(:logic) %>"> <%= uj.fetch(:title) %></a></li>
+    <% user_journeys.each_with_index do |user, user_index| %>
+      <div class="panel panel-default" id="leftMenu">
+        <li class="user_journey_user_name panel-heading">
+          <a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= user_index + 1 %>">
+            <%= "#{user_index + 1})" %> <%= user.fetch(:name) %>
+            <span> (#<%= user.fetch(:ujs).length %>)</span>
+          </a>
 
-      <% end %>
+          <div id="collapse<%= user_index + 1 %>" class="panel-collapse collapse user_journey_list">
+            <ul id="user_journey_list_ul" class="panel-body">
+              <% user.fetch(:ujs).each_with_index do |uj, uj_index| %>
+                <li class="user_journey_list_item"><a class="user_journey_item" href="#" data-title="<%=uj.fetch(:title) %>" data-code="<%= uj.fetch(:logic) %>"> <%= "#{user_index + 1}.#{uj_index + 1})" %> <%= uj.fetch(:title) %></a></li>
+
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 <div class="col-md-9">

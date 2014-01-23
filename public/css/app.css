@@ -17,13 +17,20 @@ footer {
 
 .user_journey_user_name {
   background: #ddd;
-  border: none;
+  list-style: none;
 }
 
-.user_journey_user_name > p {
+.user_journey_user_name > a {
+  color: #333;
   font-weight: bold;
-  padding: 2px 15px;
+  padding: 5px;
+  display: block;
   margin-top: 5px;
+}
+
+.user_journey_user_name > a:hover {
+  color: #333;
+  background: #eee;
 }
 
 .current_user_journey {
@@ -31,6 +38,7 @@ footer {
 }
 
 .current_user_journey > a {
+  border-radius: 0;
   color: white;
 }
 
@@ -39,6 +47,46 @@ footer {
   color: white;
 }
 
+.user_journey_instructions {
+  margin-top: 55px;
+}
+
+.user_journey_user_name {
+  padding: 5px;
+}
+
+.user_journey_user_name > .panel_collapse {
+  background: white;
+}
+
+.user_journey_list {
+  background: white;
+}
+
+#user_journey_list_ul {
+  padding: inherit;
+}
+
+#user_journey_list_ul > li {
+  padding-left: 0;
+}
+
+.user_journey_user_name > ul {
+  background: white;
+  padding-left: 0;
+}
+
+.user_journey_list_item {
+  list-style: none;
+}
+
+ul > li {
+  padding-left: 5px;
+  list-style: none;
+  display: block;
+}
+
 svg {
   width: 1500px;
+  height: 1000px;
 }

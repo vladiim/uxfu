@@ -10,11 +10,11 @@ require FILES, ->
     $(".user_journey_item").on("click", loadUserJourney)
 
   loadUserJourney = (event) ->
+    event.preventDefault()
     uj    = event.target
     title = $(uj).data('title')
     code  = $(uj).data('code')
     updateUJPage(uj, title, code)
-    event.preventDefault()
 
   updateUJPage = (uj, title, code) ->
     removeOldUJ()

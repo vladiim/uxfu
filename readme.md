@@ -24,12 +24,6 @@ User experience framework for constructing interactive digital:
 
 ***
 
-# User journeys
-
-* User journeys are draw from data in `./src/ruby/user_journeys.rb`.
-
-***
-
 # Tests
 
 To test files install mocha and chai globally `$ sudo npm install -g mocha chai` then run `$ mocha src/tests/js/myTestFile.js`
