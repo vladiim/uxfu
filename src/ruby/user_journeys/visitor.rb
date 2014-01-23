@@ -1,4 +1,4 @@
-USER_ONE_DEFINITIONS = """
+VISITOR_DEFINITIONS = """
 e=>end:>
 e2=>end:>
 addComment=>condition: Add comment
@@ -68,11 +68,11 @@ vote=>condition: Vote
 voteAccepted=>inputoutput: Vote accepted
 """
 
-USER_ONE_UJ = [
+VISITOR_UJS = [
   { title: "Get Inspired From Home",
     logic: """
 st=>start: /home:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->clicksInspNav
 clicksInspNav(yes, right)->clicksContentCategory
@@ -86,7 +86,7 @@ clicksContentItem(no)->e
   { title: "Views Content Index",
     logic: """
 st=>start: /content/cat:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->scrollsDown
 scrollsDown(yes, right)->moreContentLoaded
@@ -99,7 +99,7 @@ clicksContent(no)->e
   { title: "Views Content (Editorial)",
     logic: """
 st=>start: /content/cat/#:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->clicksImage->readsContent
 clicksImage(yes, right)->slideShowPopUp
@@ -119,7 +119,7 @@ scrollsDown(no)->e2
   { title: "Views Content (Supplier)",
     logic: """
 st=>start: /content/suppliers/#:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->addsToLookBook
 addsToLookBook(yes, right)->successMessage
@@ -142,7 +142,7 @@ requestsPhoneNumber(no)->e
   { title: "Views Content (Look Book)",
     logic: """
 st=>start: /look-books/#:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->clicksVote
 clicksVote(yes, right)->loggedIn
@@ -165,7 +165,7 @@ interactsWithComments(no)->e
   { title: "Manage my Look Book",
     logic: """
 st=>start: /look-books/#:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 editMyDetails=>condition: Edit my details
 detailsEditor=>inputoutput: #UJ Details editor
@@ -192,7 +192,7 @@ seeSimilarLookBooks(no)->e
   { title: "View comments",
     logic: """
 st=>start: Clicked on comments:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->viewExsistingComments->loggedIn
 loggedIn(yes, right)->vote
@@ -206,7 +206,7 @@ addComment(no)->e
   { title: "Details editor",
     logic: """
 st=>start: Details editor:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->editDetails
 editDetails(yes, right)->lookBookRepopulated
@@ -216,7 +216,7 @@ editDetails(no)->e
   { title: "Friends Invited",
     logic: """
 st=>start: Invited friends to Look Book:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->importedContacts
 importedContacts(yes, right)->selectOneOrMoreFriends
@@ -230,7 +230,7 @@ addFriendsEmail(no)->e
   { title: "Slide Share Popup",
     logic: """
 st=>start: Clicked content image:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->navigateThroughImages
 navigateThroughImages(yes, right)->viewOtherContentImages
@@ -244,7 +244,7 @@ interactsWithComments(no)->e
   { title: "Log in",
     logic: """
 st=>start: /login:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 st->alreadyAUser
 alreadyAUser(yes, right)->clickForgotDetails
@@ -260,7 +260,7 @@ passValidation(no)->fillInDetails
   { title: "Sign up form",
     logic: """
 st=>start: Sign up form:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 detailsValid=>condition: Details valid
 reEnterDetails=>condition: Re enter details
@@ -273,7 +273,7 @@ detailsValid(no)->reEnterDetails->detailsValid
   { title: "Invited to Join Look Book",
     logic: """
 st=>start: Receive invite (email/FB etc):>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 acceptInvite=>condition: Accept invite
 viewFriendsLookBook=>inputoutput: View friend's Look Book
@@ -286,7 +286,7 @@ acceptInvite(no)->e
   { title: "Forgot Details Form",
     logic: """
 st=>start: Forgot details form:>
-#{ USER_ONE_DEFINITIONS }
+#{ VISITOR_DEFINITIONS }
 
 submitEmail=>operation: Submit email
 emailBelongsToUser=>condition: Email belongs to existing user

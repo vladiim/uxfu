@@ -12,7 +12,7 @@ get '/home' do
 end
 
 get '/user_journeys' do
-  length = USER_ONE_UJ.length
+  length = USER_JOURNEYS.inject(0) { |sum, u| sum + u.fetch(:ujs).length }
 	erb :index, locals: {
     content: 'user_journeys',
     logged: 'out',
